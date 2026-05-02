@@ -1,0 +1,114 @@
+.todo-input-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s;
+}
+
+.todo-input-form:focus-within {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.todo-input::placeholder { color: var(--text-muted); }
+
+.todo-input:focus {
+  border-color: var(--accent);
+  background: rgba(124, 106, 247, 0.05);
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.add-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.add-btn:active:not(:disabled) { transform: translateY(0); }
+
+.add-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.add-btn-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* Priority Row */
+.priority-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.priority-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.priority-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+
+.priority-btn:hover {
+  border-color: var(--p-color);
+  color: var(--p-color);
+}
+
+.priority-btn.active {
+  background: var(--p-color);
+  border-color: var(--p-color);
+  color: #0a0a14;
+  font-weight: 600;
+}

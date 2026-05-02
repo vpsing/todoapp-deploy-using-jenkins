@@ -1,0 +1,58 @@
+version: '3.8'
+
+# =============================================
+# TaskFlow Todo App - Docker Compose
+# Usage: docker-compose up --build
+# =============================================
+
+services:
+
+  # ---- React Todo App ----
+  todo-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: taskflow-todo-app
+    ports:
+      - "3000:80"       # localhost:3000 pe access karo
+    restart: unless-stopped
+    networks:
+      - taskflow-network
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "app=taskflow"
+      - "version=1.0.0"
+
+  # ---- Jenkins CI/CD Server ----
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: taskflow-jenkins
+    ports:
+      - "8080:8080"     # Jenkins UI: localhost:8080
+      - "50000:50000"   # Jenkins Agent port
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # Docker inside Jenkins ke liye
+    restart: unless-stopped
+    networks:
+      - taskflow-network
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=true
+    labels:
+      - "app=taskflow-jenkins"
+
+# =============================================
+# Volumes - Data persist karne ke liye
+# =============================================
+volumes:
+  jenkins_home:
+    driver: local
+
+# =============================================
+# Network - Services aapas mein baat kar sakein
+# =============================================
+networks:
+  taskflow-network:
+    driver: bridge
+    name: taskflow-net

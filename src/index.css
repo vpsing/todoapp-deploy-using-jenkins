@@ -1,0 +1,65 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #0a0a14;
+  --bg-card: #12121f;
+  --bg-input: #1a1a2e;
+  --accent: #7c6af7;
+  --accent-glow: rgba(124, 106, 247, 0.3);
+  --accent-2: #f06292;
+  --text-primary: #eeeef7;
+  --text-secondary: #8888aa;
+  --text-muted: #55556a;
+  --border: rgba(124, 106, 247, 0.15);
+  --border-hover: rgba(124, 106, 247, 0.45);
+  --success: #4ade80;
+  --danger: #f87171;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124, 106, 247, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(240, 98, 146, 0.08) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70%  { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
