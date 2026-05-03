@@ -6,8 +6,7 @@ version: '3.8'
 services:
   # ---- React Todo App ----
   todo-app:
-    build:
-      context: .
+    image: viprana21/mytodoapp:latest
       dockerfile: Dockerfile
     container_name: taskflow-todo-app
     ports:
