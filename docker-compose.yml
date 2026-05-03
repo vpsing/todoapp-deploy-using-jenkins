@@ -7,7 +7,6 @@ services:
   # ---- React Todo App ----
   todo-app:
     image: viprana21/mytodoapp:latest
-      dockerfile: Dockerfile
     container_name: taskflow-todo-app
     ports:
       - "3000:80"       # localhost:3000 pe access karo
