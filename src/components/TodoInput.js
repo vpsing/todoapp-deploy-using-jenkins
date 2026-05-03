@@ -24,7 +24,7 @@ function TodoInput({ onAdd }) {
         <input
           className="todo-input"
           type="text"
-          placeholder="Naya task likho..."
+          placeholder=""
           value={text}
           onChange={e => setText(e.target.value)}
           autoFocus
